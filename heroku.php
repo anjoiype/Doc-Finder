@@ -25,7 +25,7 @@ $dsn = "pgsql:"
  
 $db = new PDO($dsn);
 $query = "SELECT doc_name, loc, feedback"
-    . "FROM search";
+    . "FROM search;";
 $result = $db->query($query);
 while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
     echo "<tr>";
