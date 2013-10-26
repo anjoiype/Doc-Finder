@@ -16,12 +16,12 @@
 <?php
 
 $dsn = "pgsql:"
-    . "host=ec2-54-204-20-28.compute-1.amazonaws.com;"
-    . "dbname=d48lm9c21sqkda;"
-    . "user=augpxcuohqgwzs;"
+    . "host=ec2-54-235-74-57.compute-1.amazonaws.com;"
+    . "dbname=d1gueknm6h2psa;"
+    . "user=pwbtzrsrgvgqrq;"
     . "port=5432;"
    
-    . "password=RcLr0CX0JB3VL6sSPQMbGj4k-w";
+    . "password=AavMrCiPYOhYhVHj173a2tS2EZ";
  
 $db = new PDO($dsn);
 $query = "SELECT doc_name, loc, feedback"
