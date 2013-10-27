@@ -3,7 +3,7 @@
   <title>Employees</title>
  </head>
  <body>
- <!-- <table>
+<table>
    <thead>
     <tr>
      <th>Employee ID</th>
@@ -13,11 +13,11 @@
     </tr>
    </thead>
    <tbody>
-   -->
+  
 
 <?php
 
-//connect to the database.
+/*//connect to the database.
 $link = pg_connect("host=ec2-54-235-74-57.compute-1.amazonaws.com port=5432 dbname=d1gueknm6h2psa user=pwbtzrsrgvgqrq password=AavMrCiPYOhYhVHj173a2tS2EZ sslmode=require options='--client_encoding=UTF8'");
 if (!$link) {
 
@@ -49,7 +49,7 @@ pg_free_result($Result);
 pg_close();
 ?>
 
-<!--
+<!--*/
 // attempt a connection
 
 
@@ -117,7 +117,7 @@ pg_close($dbh);
 -->
 
 
-  <!-- </tbody>
-  </table>-->
+   </tbody>
+  </table>
  </body>
 </html>
