@@ -14,9 +14,9 @@
         <script>                          
                 function myCall() {
                     var request = $.ajax({
-                        url: "ajax.php",
+                        url: "heroku.php",
                         type: "GET",            
-                        dataType: "html"
+                        dataType: "xml"
                     });
  
                     request.done(function(msg) {
