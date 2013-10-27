@@ -39,9 +39,10 @@ $(document).ready(function(){
 	
 	
 var url="heroku.php";
-document.write("<p>hai</p>");
+
 
 $("#userdata tbody").html("");
+document.write("<p>hai</p>");
 $.getJSON(url,function(data){
 $.each(data.members, function(i,user){
 	
