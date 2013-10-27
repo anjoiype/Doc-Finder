@@ -45,11 +45,11 @@ while ($row = pg_fetch_row($Result)){
 	$XML .= "</entry>\n";
 }
 $XML .= "</entries>";
-//return $XML;
+echo $XML;
 
 pg_free_result($Result);
 pg_close();
-echo $XML;
+
 ?>
 
 <!--
