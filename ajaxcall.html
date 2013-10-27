@@ -7,7 +7,7 @@
 <body>
 	<script>
 		
-			alert("hai");
+			function myfunction(){
 		$.ajax({alert("anjo");
 					type: “POST”,  //type of request  GET or POST
 					url: heroku.php, // url to which the request is send
@@ -39,9 +39,11 @@
 					$('#emp_search_data').html(table_data); // for display
  
 				}	
+			}
 			
 	</script>		
-	<div id ="emp_search_data"></div>
+	<div id ="emp_search_data">
+	<button onclick="myfunction()">Try it</button></div>
 	
 	script run ayila...
 </body>
