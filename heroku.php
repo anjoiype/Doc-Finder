@@ -17,7 +17,7 @@
 
 <?php
 
-/*//connect to the database.
+//connect to the database.
 $link = pg_connect("host=ec2-54-235-74-57.compute-1.amazonaws.com port=5432 dbname=d1gueknm6h2psa user=pwbtzrsrgvgqrq password=AavMrCiPYOhYhVHj173a2tS2EZ sslmode=require options='--client_encoding=UTF8'");
 if (!$link) {
 
@@ -29,10 +29,10 @@ if (!$link) {
 
 //Get the data
 $Query = "SELECT * from search";
-$Result = pg_query($Query); //Execute the query
+$Result = pg_query($link,$Query); //Execute the query
 $XML = "";
 $NumFields = pg_num_fields($Result);
-$XML .= "<?xml version="1.0" encoding="iso-8859-1"?>\n<entries>\n";
+$XML .= "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?>\n<entries>\n";
 $row = true;
 while ($row = pg_fetch_row($Result)){
 	$XML .= "<entry>";
@@ -43,13 +43,13 @@ while ($row = pg_fetch_row($Result)){
 	$XML .= "</entry>\n";
 }
 $XML .= "</entries>";
-echo ($XML);
+echo $XML;
 
 pg_free_result($Result);
 pg_close();
 ?>
 
-<!--*/
+<!--
 // attempt a connection
 
 
