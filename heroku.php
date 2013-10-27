@@ -10,7 +10,7 @@
 <?php
 
 //connect to the database.
-$link = pg_connect("host=ec2-54-235-74-57.compute-1.amazonaws.com port=5432 dbname=d1gueknm6h2psa user=pwbtzrsrgvgqrq password=AavMrCiPYOhYhVHj173a2tS2EZ sslmode=require options='--client_encoding=UTF8'");
+$link = pg_connect("host=ec2-54-235-74-57.compute-1.amazonaws.com port=5432 dbname=d1gueknm6h2psa user=pwbtzrsrgvgqrq password=AavMrCiPYOhYhVHj173a2tS2EZ ") or die('Could not connect: ' . pg_last_error());
 if (!$link) {
 
 
@@ -23,7 +23,9 @@ if (!$link) {
 $Query = "SELECT * from search";
 $arr = array();
 $Result = pg_query($link,$Query); //Execute the query
-
+if (!$Result) {
+    die('Invalid query: ' . mysql_error());
+}
 while ($row = pg_fetch_row($Result)){
 $arr[] = $row;
 }
