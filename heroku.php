@@ -16,8 +16,7 @@
    -->
 
 <?php
-session_start();
-header("Cache-control: private");
+
 //connect to the database.
 $link = pg_connect("host=ec2-54-235-74-57.compute-1.amazonaws.com port=5432 dbname=d1gueknm6h2psa user=pwbtzrsrgvgqrq password=AavMrCiPYOhYhVHj173a2tS2EZ sslmode=require options='--client_encoding=UTF8'");
 if (!$link) {
