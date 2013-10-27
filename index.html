@@ -16,6 +16,41 @@
     	font-size: 12px;
     }
     </style>
+    	<script>
+			function mycall(){
+		$.ajax({
+					type: “POST”,  //type of request  GET or POST
+					url: heroku.php, // url to which the request is send
+					success: function(xmlData){// function to be called if the request succeeds
+						funEmpData(xmlData); // return data
+					},
+					error: function(){  //function to be called if the request fail
+						alert(“error”);
+					}
+ 
+				});
+				function funEmpData(xmlData)
+				{
+					// all raw data is in returnXML
+					// itertin through loop in jQuery
+					var table_data = '<table border=1 ><tr><td>User Name</td><td>Address</td>';
+					$(xmlData).find('emp_data').each(function(){
+ 
+					var username    = $(this).find('doc_name').text();
+					var address     = $(this).find('location').text();
+					table_data += '<tr >';
+					table_data += '<td>'+username+'</td>';
+					table_data += '<td>'+address+'</td></tr>';
+ 
+					});
+ 
+					table_data += '</table>';
+ 
+					$('#emp_search_data').html(table_data); // for display
+ 
+				}	
+			}
+	</script>		
 </head>
 <body>
     <div data-role="page" id="one">
@@ -27,7 +62,7 @@
         <div data-role="content">
         	<div class="c_content_body">
         		<h4 style="text-align:center">Please fill in the information below</h4>
-            	<form action ="ajaxcall.html" method ="post" data-ajax="false">
+            	<form action ="mycall()" method ="post" data-ajax="false">
             		<label><input type="radio" name="person" id ="name">Name</label>
             		<label><input type="radio" name="person" id ="speciality">Speciality</label>
             		<label><input type="radio" name="person" id = "date">Date</label>
