@@ -1,53 +1,57 @@
-<!DOCTYPE html>
-<html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
-</script>
-
+<title>jQuery PHP Json Response</title>
+<style type="text/css">
+div
+{
+text-align:center;
+padding:10px;
+}
+ 
+#msg {
+width: 500px;
+margin: 0px auto;
+}
+.members {
+width: 500px ;
+background-color: beige;
+}
+</style>
+</head>
 <body>
-	<script>
-		
-			
-		$.ajax({
-					type: “POST”,  //type of request  GET or POST
-					url: heroku.php, // url to which the request is send
-					success: function(xmlData){// function to be called if the request succeeds
-						funEmpData(xmlData); // return data
-					},
-					error: function(){  //function to be called if the request fail
-						alert(“error”);
-					}
+<div id="msg">
+<table id="userdata" border="1">
+<thead>
+<th>Id</th>
+<th>First Name</th>
+<th>Surname</th>
+<th>Title</th> 
+</thead>
+<tbody></tbody>
+</table>
+</div>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js">
+</script>
+<script type="text/javascript">
  
-				});
-				function funEmpData(xmlData)
-				{ alert("jnj");
-					// all raw data is in returnXML
-					// itertin through loop in jQuery
-					var table_data = '<table border=1 ><tr><td>User Name</td><td>Address</td>';
-					$(xmlData).find('emp_data').each(function(){
+$(document).ready(function(){
+var url="heroku.php";
+$("#userdata tbody").html("");
+$.getJSON(url,function(data){
+$.each(data.members, function(i,user){
+var tblRow =
+"<tr>"
++"<td>"+user.doc_name+"</td>"
++"<td>"+user.location+"</td>"
++"<td>"+user.feedback+"</td>"
+
++"</tr>" ;
+$(tblRow).appendTo("#userdata tbody");
+});
+});
+});
  
-					var username    = $(this).find('doc_name').text();
-					var address     = $(this).find('location').text();
-					table_data += '<tr >';
-					table_data += '<td>'+username+'</td>';
-					table_data += '<td>'+address+'</td></tr>';
- 
-					});
- 
-					table_data += '</table>';
- 
-					$('#emp_search_data').html(table_data); // for display
- 
-				}	
-			
-			
-	</script>
-	</head>
-	<body>		
-	<div id ="emp_search_data">
-	<button onclick="myfunction()">Try it</button></div>
-	
-	script run ayila...
+</script>
 </body>
 </html>
-

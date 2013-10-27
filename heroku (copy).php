@@ -5,6 +5,16 @@
  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
  
  <body>
+<table>
+   <thead>
+    <tr>
+     <th>Employee ID</th>
+     <th>Last Name</th>
+     <th>First Name</th>
+     <th>Title</th>
+    </tr>
+   </thead>
+   <tbody>
   
 
 <?php
@@ -21,13 +31,21 @@ if (!$link) {
 
 //Get the data
 $Query = "SELECT * from search";
-$arr = array();
 $Result = pg_query($link,$Query); //Execute the query
-
+$XML = "";
+$NumFields = pg_num_fields($Result);
+$XML .= "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?>\n<entries>\n";
+$row = true;
 while ($row = pg_fetch_row($Result)){
-$arr[] = $row;
+	$XML .= "<entry>";
+	for ($i=0; $i < $NumFields; $i++)
+    {   
+	    $XML .= "<" . pg_field_name($Result, $i) . ">" . $row[$i] . "</" . pg_field_name($Result, $i) . ">";
+    }
+	$XML .= "</entry>\n";
 }
-echo '{"members":'.json_encode($arr).'}';
+$XML .= "</entries>";
+echo $XML;
 
 pg_free_result($Result);
 pg_close();
@@ -102,6 +120,7 @@ pg_close($dbh);
 -->
 
 
-  
+   </tbody>
+  </table>
  </body>
 </html>
