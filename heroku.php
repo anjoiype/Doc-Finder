@@ -23,8 +23,8 @@ if (!$link) {
 $Query = "SELECT * FROM search";
 $arr = array();
 $Result = pg_query($link,$Query); //Execute the query
-echo "haiiii";
-echo $Result;
+
+
 if (!$Result) {
     die('Invalid query: ' . mysql_error());
 }
