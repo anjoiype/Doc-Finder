@@ -39,10 +39,11 @@ $(document).ready(function(){
 	
 	
 var url="heroku.php";
-document.write("<p>hai</p>");
+
 $("#userdata tbody").html("");
 $.getJSON(url,function(data){
 $.each(data.members, function(i,user){
+	document.write("<p>hai</p>");
 var tblRow =
 "<tr>"
 +"<td>hai"+user.doc_name+"</td>"
