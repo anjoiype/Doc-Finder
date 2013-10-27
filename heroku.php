@@ -3,7 +3,7 @@
   <title>Employees</title>
  </head>
  <body>
-  <table>
+ <!-- <table>
    <thead>
     <tr>
      <th>Employee ID</th>
@@ -13,9 +13,37 @@
     </tr>
    </thead>
    <tbody>
+   -->
+
 <?php
+session_start();
+header("Cache-control: private");
+//connect to the database.
+$link = pg_connect("host=ec2-54-235-74-57.compute-1.amazonaws.com port=5432 dbname=d1gueknm6h2psa user=pwbtzrsrgvgqrq password=AavMrCiPYOhYhVHj173a2tS2EZ sslmode=require options='--client_encoding=UTF8'");
 
+//Get the data
+$Query = "SELECT * from search";
+$Result = pg_query($Query); //Execute the query
+$XML = "";
+$NumFields = pg_num_fields($Result);
+$XML .= "<?xml version="1.0" encoding="iso-8859-1"?>\n<entries>\n";
+$row = true;
+while ($row = pg_fetch_row($Result)){
+	$XML .= "<entry>";
+	for ($i=0; $i < $NumFields; $i++)
+    {   
+	    $XML .= "<" . pg_field_name($Result, $i) . ">" . $row[$i] . "</" . pg_field_name($Result, $i) . ">";
+    }
+	$XML .= "</entry>\n";
+}
+$XML .= "</entries>";
+echo ($XML);
 
+pg_free_result($Result);
+pg_close();
+?>
+
+<!--
 // attempt a connection
 
 
@@ -80,10 +108,10 @@ pg_close($dbh);
 
 
 ?>
+-->
 
 
-
-   </tbody>
-  </table>
+  <!-- </tbody>
+  </table>-->
  </body>
 </html>
