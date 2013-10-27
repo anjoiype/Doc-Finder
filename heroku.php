@@ -38,7 +38,7 @@ while ($row = pg_fetch_row($Result)){
 	$XML .= "<entry>";
 	for ($i=0; $i < $NumFields; $i++)
     {   
-	    $XML .= "<" . pg_field_name($Result, $i) . ">" . $row[$i] . "</" . pg_field_name($Result, $i) . ">";
+	    $XML .= /*"<" .*/ pg_field_name($Result, $i) ./* ">" .*/ $row[$i] . /*"</" .*/ pg_field_name($Result, $i) . ">";
     }
 	$XML .= "</entry>\n";
 }
