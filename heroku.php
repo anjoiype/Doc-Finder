@@ -79,7 +79,7 @@ while ($row = pg_fetch_row($Result)){
 	$XML .= "</entry>\n";
 }
 $XML .= "</entries>";
-return $XML;
+//return $XML;
 
 pg_free_result($Result);
 pg_close();
