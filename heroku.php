@@ -32,7 +32,7 @@ $Query = "SELECT * from search";
 $Result = pg_query($link,$Query); //Execute the query
 $XML = "";
 $NumFields = pg_num_fields($Result);
-$XML .= "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?>\n<entries>\n";
+/*$XML .= "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?>\n<entries>\n";*/
 $row = true;
 while ($row = pg_fetch_row($Result)){
 	$XML .= "<entry>";
