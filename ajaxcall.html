@@ -8,7 +8,9 @@
 	<script>
 		
 			function myfunction(){
-		$.ajax({alert("anjo");
+				alert("anjo");
+			}
+		$.ajax({
 					type: “POST”,  //type of request  GET or POST
 					url: heroku.php, // url to which the request is send
 					success: function(xmlData){// function to be called if the request succeeds
