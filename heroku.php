@@ -32,18 +32,18 @@ $Query = "SELECT * from search";
 $Result = pg_query($link,$Query); //Execute the query
 $XML = "";
 $NumFields = pg_num_fields($Result);
-/*$XML .= "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?>\n<entries>\n";*/
+$XML .= "<?xml version=\"1.0\" encoding=\"iso-8859-1\"?>\n<entries>\n";
 $row = true;
 while ($row = pg_fetch_row($Result)){
 	$XML .= "<entry>";
 	for ($i=0; $i < $NumFields; $i++)
     {   
-	    $XML .= /*"<" .*/ pg_field_name($Result, $i) ./* ">" .*/ $row[$i] . /*"</" .*/ pg_field_name($Result, $i) . ">";
+	    $XML .= "<" . pg_field_name($Result, $i) . ">" . $row[$i] . "</" . pg_field_name($Result, $i) . ">";
     }
 	$XML .= "</entry>\n";
 }
 $XML .= "</entries>";
-echo $XML;
+return $XML;
 
 pg_free_result($Result);
 pg_close();
