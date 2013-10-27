@@ -20,7 +20,7 @@ if (!$link) {
 }
 
 //Get the data
-$Query = "SELECT * from search;";
+$Query = "SELECT * from search";
 $arr = array();
 $Result = pg_query($link,$Query); //Execute the query
 
