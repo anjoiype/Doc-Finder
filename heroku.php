@@ -2,6 +2,42 @@
  <head>
   <title>Employees</title>
  </head>
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js">
+ <script>
+		function mycall(){
+		$.ajax({
+					type: “POST”,  //type of request  GET or POST
+					url: heroku.php, // url to which the request is send
+					success: function(xmlData){// function to be called if the request succeeds
+						funEmpData(xmlData); // return data
+					},
+					error: function(){  //function to be called if the request fail
+						alert(“error”);
+					}
+ 
+				});
+				function funEmpData(xmlData)
+				{
+					// all raw data is in returnXML
+					// itertin through loop in jQuery
+					var table_data = '<table border=1 ><tr><td>User Name</td><td>Address</td>';
+					$(xmlData).find('emp_data').each(function(){
+ 
+					var username    = $(this).find('doc_name').text();
+					var address     = $(this).find('location').text();
+					table_data += '<tr >';
+					table_data += '<td>'+username+'</td>';
+					table_data += '<td>'+address+'</td></tr>';
+ 
+					});
+ 
+					table_data += '</table>';
+ 
+					$('#emp_search_data').html(table_data); // for display
+ 
+				}	
+			}
+	</script>		
  <body>
 <table>
    <thead>
@@ -47,6 +83,7 @@ return $XML;
 
 pg_free_result($Result);
 pg_close();
+mycall();
 ?>
 
 <!--
