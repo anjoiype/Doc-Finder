@@ -36,13 +36,15 @@ background-color: beige;
 <script type="text/javascript">
  
 $(document).ready(function(){
+	document.write("<p>hai</p>");
+	
 var url="heroku.php";
 $("#userdata tbody").html("");
 $.getJSON(url,function(data){
 $.each(data.members, function(i,user){
 var tblRow =
 "<tr>"
-+"<td>hai"+user.Chengannur+"</td>"
++"<td>hai"+user.doc_name+"</td>"
 +"<td>dooo"+user.loc+"</td>"
 +"<td>vvv"+user.feedback+"</td>"
 
