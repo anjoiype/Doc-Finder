@@ -35,19 +35,19 @@ var user;
 	
 $.getJSON(url,function(data){
 	//document.write(data.members);	
-	//$.each(data,function(i,user){
+	$.each(data,function(i,user){
 	
 var tblRow =
 "<tr>"
-+"<td>"+data.doc_name+"</td>"
-+"<td>"+data.loc+"</td>"
-+"<td>"+data.feedback+"</td>"
++"<td>"+user.doc_name+"</td>"
++"<td>"+user.loc+"</td>"
++"<td>"+user.feedback+"</td>"
 
 +"</tr>" ;
 
 $(tblRow).appendTo("#userdata tbody");
 console.log(data);
-//});
+});
 });
 });
  
