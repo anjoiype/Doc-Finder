@@ -27,7 +27,7 @@ $(document).ready(function(){
 var url='/heroku.php';
 
 
-$("#userdata").html("");
+$("#userdata tbody").html("");
 	
 var success = false;
 var data;
@@ -35,19 +35,19 @@ var user;
 	
 $.getJSON(url,function(data){
 	//document.write(data.members);	
-	$.each(data,function(i,user){
+	//$.each(data,function(i,user){
 	
 var tblRow =
 "<tr>"
-+"<td>hai"+user.a+"</td>"
-+"<td>dooo"+user.b+"</td>"
-+"<td>vvv"+user.c+"</td>"
++"<td>"+data.a+"</td>"
++"<td>"+data.b+"</td>"
++"<td>"+data.c+"</td>"
 
 +"</tr>" ;
 
-$(tblRow).appendTo("#userdata");
+$(tblRow).appendTo("#userdata tbody");
 console.log(data);
-});
+//});
 });
 });
  
