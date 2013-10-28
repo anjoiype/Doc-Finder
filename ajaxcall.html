@@ -46,15 +46,7 @@ var success = false;
 
 $.getJSON("http://lit-journey-1188.herokuapp.com/heroku.php",function(data){
 	document.write("<p>hai njoy</p>");
-	success = true;});
-	setTimeout(function() {
-    if (!success)
-    {
-        // Handle error accordingly
-        alert("Yup, 404"); // string was "Houston, we have a problem."
-    }
-}, 1000);
-$.each(data.members, function(i,user){
+	$.each(data.members, function(i,user){
 	
 var tblRow =
 "<tr>"
