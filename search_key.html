@@ -16,6 +16,41 @@
     	font-size: 12px;
     }
     </style>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js">
+</script>
+<script src ="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script>
+ 
+$(document).ready(function(){
+	
+	
+var url='/heroku1.php';
+
+
+//$("#userdata tbody").html("");
+	
+var success = false;
+var data;
+var user;
+	
+$.getJSON(url,function(data){
+	//document.write(data.members);	
+	$.each(data,function(i,user){
+	
+var tblRow =
+"<div class=\"ui-block-a\" id = \"name\">"+user.doc_name+"</div>"+
+				"<div class=\"ui-block-b\" id = \"spec\">"+user.loc+"</div>"+
+				"<div class=\"ui-block-c\" id = \"loc\">Block C</div>"+
+				"<div class=\"ui-block-d\" id = \"avail\">Block D</div>"+
+				"<div class=\"ui-block-e\" id = \"time\">Block E</div>";
+
+$(tblRow).appendTo("#display");
+console.log(data);
+});
+});
+});
+ 
+</script>
 </head>
 <body>
 	
@@ -27,7 +62,7 @@
 
 		<div data-role="content">	
 				<h4 style="text-align:center">Search results are displayed below</h4>
-			<div class="ui-grid-d c_col" >
+			<div class="ui-grid-d c_col" id ="display">
 				
 					<div class="ui-block-a"><b>Name</b></div>
 					<div class="ui-block-b"><b>Speciality</b></div>
@@ -36,11 +71,11 @@
 					<div class="ui-block-e"><b>Time</b></div>
 				
 
-				<div class="ui-block-a">Block A</div>
-				<div class="ui-block-b">Block B</div>
-				<div class="ui-block-c">Block C</div>
-				<div class="ui-block-d">Block D</div>
-				<div class="ui-block-e">Block E</div>
+				<div class="ui-block-a" id = "name">Block A</div>
+				<div class="ui-block-b" id = "spec">Block B</div>
+				<div class="ui-block-c" id = "loc">Block C</div>
+				<div class="ui-block-d" id = "avail">Block D</div>
+				<div class="ui-block-e" id = "time">Block E</div>
 
 				<div class="ui-block-a">Block A</div>
 				<div class="ui-block-b">Block B</div>
@@ -51,13 +86,9 @@
 				<br><br>
 				<a href="#three" data-theme="b" data-role="button" data-transition="slide" data-icon="arrow-r" data-iconpos="right">Feedback Form</a>
 		</div><!-- /content -->
-		<?php
-		$name1  = $_POST['search_text'];
-		$name = "anjo";
-		echo $name;
-		?>
+		
 
 		<div data-role="footer" data-theme="b">
-            <p style="text-align:center"><?php echo $name1 ;?></p>
+            <p style="text-align:center">Medical Cloud</p>
         </div><!-- /footer -->
        
