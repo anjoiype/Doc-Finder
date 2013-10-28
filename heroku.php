@@ -8,8 +8,9 @@
   
 
 <?php
-
-//connect to the database.
+$arr = array('a' => 1, 'b' => 2, 'c' => 3, 'd' => 4, 'e' => 5);
+   echo json_encode($arr);
+/*connect to the database.
 $link = pg_connect("host=ec2-54-235-74-57.compute-1.amazonaws.com port=5432 dbname=d1gueknm6h2psa user=pwbtzrsrgvgqrq password=AavMrCiPYOhYhVHj173a2tS2EZ ") ;
 if (!$link) {
 
@@ -35,7 +36,7 @@ echo '{"members":'.json_encode($arr).'}';
 
 pg_free_result($Result);
 pg_close();
-
+*/
 
 ?>
 
