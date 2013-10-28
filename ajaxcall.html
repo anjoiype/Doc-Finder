@@ -45,14 +45,15 @@ $("#userdata tbody").html("");
 var success = false;
 
 $.getJSON("http://lit-journey-1188.herokuapp.com/heroku.php",function(data){
-	document.write("<p>hai njoy</p>");
+	document.write("check...");
+	document.write(data);
 	$.each(data.members, function(i,user){
 	
 var tblRow =
 "<tr>"
-+"<td>hai"+user.doc_name+"</td>"
-+"<td>dooo"+user.loc+"</td>"
-+"<td>vvv"+user.feedback+"</td>"
++"<td>hai"+user.a+"</td>"
++"<td>dooo"+user.b+"</td>"
++"<td>vvv"+user.c+"</td>"
 
 +"</tr>" ;
 $(tblRow).appendTo("#userdata tbody");
