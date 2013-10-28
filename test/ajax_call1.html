@@ -1,0 +1,37 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <script language="javascript" type="text/javascript" src="jquery.js"></script>
+  </head>
+  <body>
+
+  
+  <h2> Call php file </h2>
+  <h3>Output: </h3>
+  <div id="output">this element should be replaced by result</div>
+
+  <script id="source" language="javascript" type="text/javascript">
+
+  $(function () 
+  {
+	  
+    
+    $.ajax({                                      
+      url: "/php_call.php",                            
+      data: "",                        
+                                       
+      dataType: 'json',                   
+      success: function(data)          
+      {
+        var a = data[0];              
+        var b = data[1];           
+       
+        $('#output').html("<b>a: </b>"+a+"<b> b: </b>"+b); 
+      } 
+    });
+  }); 
+
+  </script>
+  </body>
+</html>

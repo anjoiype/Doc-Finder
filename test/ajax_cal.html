@@ -1,7 +1,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<title>jQuery PHP Json Response</title>
+<title>Ajax_cal</title>
 
 </head>
 <body>
@@ -9,9 +9,9 @@
 <table id="userdata" border="1">
 <thead>
 
-<th>First Name</th>
-<th>Surname</th>
-<th>Title</th> 
+<th>A</th>
+<th>B</th>
+<th>C</th> 
 </thead>
 <tbody></tbody>
 </table>
@@ -24,28 +24,25 @@
 $(document).ready(function(){
 	
 	
-var url='http://localhost/heroku.php';
+var url="/php_call.php";
 
 
-$("#userdata").html("");
+$("#userdata tbody").html("");
 	
 var success = false;
-var data;
-var user;
 	
 $.getJSON(url,function(data){
-	//document.write(data.members);	
-	$.each(data,function(i,user){
+	
+	$.each(data.members, function(i,user){
 	
 var tblRow =
 "<tr>"
 +"<td>hai"+user.a+"</td>"
-+"<td>dooo"+user.b+"</td>"
-+"<td>vvv"+user.c+"</td>"
++"<td>hai"+user.b+"</td>"
++"<td>hai"+user.c+"</td>"
 
 +"</tr>" ;
-
-$(tblRow).appendTo("#userdata");
+$(tblRow).appendTo("#userdata tbody");
 console.log(data);
 });
 });
