@@ -24,7 +24,7 @@
 $(document).ready(function(){
 	
 	
-var url='/heroku.php';
+var url='/heroku1.php';
 
 
 $("#userdata tbody").html("");
@@ -39,9 +39,9 @@ $.getJSON(url,function(data){
 	
 var tblRow =
 "<tr>"
-+"<td>"+data.a+"</td>"
-+"<td>"+data.b+"</td>"
-+"<td>"+data.c+"</td>"
++"<td>"+data.doc_name+"</td>"
++"<td>"+data.loc+"</td>"
++"<td>"+data.feedback+"</td>"
 
 +"</tr>" ;
 

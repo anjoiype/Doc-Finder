@@ -20,7 +20,7 @@ $Result = pg_query($link,$Query); //Execute the query
 $json = array();
 
 $row = true;
-while ($row = pg_fetch_row($Result)){
+while ($row = pg_fetch_array($Result)){
 	
 	$json[] = $row;
 }
