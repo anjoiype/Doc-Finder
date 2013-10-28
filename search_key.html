@@ -39,10 +39,10 @@ $.getJSON(url,function(data){
 	
 var tblRow =
 "<div class=\"ui-block-a\" id = \"name\">"+user.doc_name+"</div>"+
-				"<div class=\"ui-block-b\" id = \"spec\">"+user.loc+"</div>"+
-				"<div class=\"ui-block-c\" id = \"loc\">Block C</div>"+
-				"<div class=\"ui-block-d\" id = \"avail\">Block D</div>"+
-				"<div class=\"ui-block-e\" id = \"time\">Block E</div>";
+				"<div class=\"ui-block-b\" id = \"spec\">"+" "+"</div>"+
+				"<div class=\"ui-block-c\" id = \"loc\">"+user.loc+"</div>"+
+				"<div class=\"ui-block-d\" id = \"avail\"></div>"+
+				"<div class=\"ui-block-e\" id = \"time\"></div>";
 
 $(tblRow).appendTo("#display");
 console.log(data);
@@ -71,17 +71,6 @@ console.log(data);
 					<div class="ui-block-e"><b>Time</b></div>
 				
 
-				<div class="ui-block-a" id = "name">Block A</div>
-				<div class="ui-block-b" id = "spec">Block B</div>
-				<div class="ui-block-c" id = "loc">Block C</div>
-				<div class="ui-block-d" id = "avail">Block D</div>
-				<div class="ui-block-e" id = "time">Block E</div>
-
-				<div class="ui-block-a">Block A</div>
-				<div class="ui-block-b">Block B</div>
-				<div class="ui-block-c">Block C</div>
-				<div class="ui-block-d">Block D</div>
-				<div class="ui-block-e">Block E</div>
 			</div><!-- /grid-b -->	
 				<br><br>
 				<a href="#three" data-theme="b" data-role="button" data-transition="slide" data-icon="arrow-r" data-iconpos="right">Feedback Form</a>
