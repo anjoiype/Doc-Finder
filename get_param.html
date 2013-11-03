@@ -17,6 +17,7 @@
 		{
 			sql="SELECT * FROM search WHERE doc_name ="+search_string;
 		}
+		document.write("jhbhk");
 		$.getJSON(url+"?person="+radio_text+"&search_text="+search_string,function(data){
 			document.write(data);
 			
