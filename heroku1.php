@@ -34,17 +34,17 @@ if($radio_option == 'date')
 $Result = pg_query($link,$Query); //Execute the query
 
 
-$json = array();
-
+//$json = array();
+$json = $Query;
 $row = true;
-while ($row = pg_fetch_array($Result)){
+/*while ($row = pg_fetch_array($Result)){
 	
 	$json['name'] = $row['doc_name'];
 	$json['speciality'] = $row['speciality'];
 	$json['location'] = $row['loc'];
 	$json['avail'] = $row['avail'];
 	$json['time'] = $row['time'];
-}
+}*/
 
 echo $json_data = json_encode($json);
 
