@@ -33,6 +33,7 @@ if($radio_option == 'date')
 
 $Result = pg_query($link,$Query); //Execute the query
 
+
 $json = array();
 
 $row = true;
