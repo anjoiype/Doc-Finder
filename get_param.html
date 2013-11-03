@@ -19,10 +19,15 @@
 		}
 		
 		$.getJSON(url+"?person="+radio_text+"&search_text="+search_string,function(data){
-			document.write("jhbhk");
-			document.write(data);
+				$.each(data,function(i,user){
+	document.write(user.loc);
+
+console.log(data);
+			
+			
 			
 		});
+	});
 			
 		
 		function GetUrlValue(VarSearch){
