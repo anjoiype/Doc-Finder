@@ -1,0 +1,40 @@
+<!doctype html>
+<html>
+	<head>
+	 <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js">
+	</script>
+	<script src ="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+	<script>
+	$(document).ready(function(){
+		
+		var radio_text = GetUrlValue('person');
+		var search_string  = GetUrlValue('search_text');
+		var sql;
+		var url='http://localhost/heroku1.php';
+		
+		
+		if(radio_text == name)
+		{
+			sql="SELECT * FROM search WHERE doc_name ="+search_string;
+		}
+		$.getJSON(url+"?person="+radio_text+"&search_text="+search_string,function(data){
+			document.write(data);
+		});
+			
+		
+		function GetUrlValue(VarSearch){
+			var SearchString = window.location.search.substring(1);
+			var VariableArray = SearchString.split('&');
+			for(var i = 0; i < VariableArray.length; i++){
+				var KeyValuePair = VariableArray[i].split('=');
+				if(KeyValuePair[0] == VarSearch){
+				return KeyValuePair[1];
+			}
+		}
+	}
+});
+		
+		</script>
+	</head>
+	</html>
+

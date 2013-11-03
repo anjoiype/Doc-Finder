@@ -13,8 +13,24 @@ if (!$link) {
 
 }
 
+
 //Get the data
-$Query = "SELECT * from search";
+$Query = "";
+$radio_option = $_GET['person'];
+$search_text  = $_GET['search_text'];
+if($radio_option == 'name')
+{
+	$Query = "SELECT * FROM search WHERE doc_name = ".$search_text;
+} 
+if($radio_option == 'speciality')
+{
+	$Query = "SELECT * FROM search WHERE speciality = ".$search_text;
+} 
+if($radio_option == 'date')
+{
+	$Query = "SELECT * FROM search WHERE date = ".$search_text;
+} 
+
 $Result = pg_query($link,$Query); //Execute the query
 
 $json = array();
@@ -22,7 +38,11 @@ $json = array();
 $row = true;
 while ($row = pg_fetch_array($Result)){
 	
-	$json[] = $row;
+	$json['name'] = $row['doc_name'];
+	$json['speciality'] = $row['speciality'];
+	$json['location'] = $row['loc'];
+	$json['avail'] = $row['avail'];
+	$json['time'] = $row['time'];
 }
 
 echo $json_data = json_encode($json);
