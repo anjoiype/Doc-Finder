@@ -46,7 +46,7 @@ $row = true;
 	$json['time'] = $row['time'];
 }*/
 
-echo $json_data = json_encode($Result);
+echo $json_data = json_encode($link);
 
 pg_free_result($Result);
 pg_close();
