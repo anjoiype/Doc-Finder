@@ -14,11 +14,11 @@
 		var url='http://lit-journey-1188.herokuapp.com/heroku1.php';
 		$.getJSON(url+"?person="+radio_text+"&search_text="+search_string,function(data)
 		{
-			//document.write(data.loc);
+			//
 			$.each(data,function(i,user)
 			{
 				document.write("HGFFF");
-				
+				document.write(user.loc);
 				console.log(data);
 			});
 		});
