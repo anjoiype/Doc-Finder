@@ -20,7 +20,7 @@ $radio_option = $_GET['person'];
 $search_text  = $_GET['search_text'];
 if($radio_option == 'name')
 {
-	$Query = "SELECT * FROM search WHERE doc_name = ".$search_text;
+	$Query = "SELECT * FROM search WHERE doc_name = ".$search_text.";";
 } 
 if($radio_option == 'speciality')
 {
