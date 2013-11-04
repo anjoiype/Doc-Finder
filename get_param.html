@@ -27,23 +27,23 @@
 		var radio_text = GetUrlValue('person');
 		var search_string  = GetUrlValue('search_text');
 		var sql;
-		var url='http://lit-journey-1188.herokuapp.com/heroku1.php';
+		var url = 'http://localhost/heroku1.php';
+		//var url='http://lit-journey-1188.herokuapp.com/heroku1.php';
 		$.getJSON(url+"?person="+radio_text+"&search_text="+search_string,function(data)
-		{console.log(data);
-			$.each(data,function(i,user){
+		{
+			$.each(data,function(i,user)
+			{
 			var tblRow =
-				"<div class=\"ui-block-a\" id = \"name\">"+data.name+"</div>"+
-				"<div class=\"ui-block-b\" id = \"spec\">"+user.speciality+"</div>"+
-				"<div class=\"ui-block-c\" id = \"location\">"+user.location+"</div>"+
-				"<div class=\"ui-block-d\" id = \"avail\">"+user.avail+"</div>"+
-				"<div class=\"ui-block-e\" id = \"time\">"+user.time+"</div>";
-            
-           
-            
-            
-            
-		
-$(tblRow).appendTo("#display");
+				"<div class=\"ui-block-a\" id = \"name\">"+user[0].toUpperCase()+"</div>"+
+				"<div class=\"ui-block-b\" id = \"spec\">"+user[3].toUpperCase()+"</div>"+
+				"<div class=\"ui-block-c\" id = \"location\">"+user[1].toUpperCase()+"</div>"+
+				"<div class=\"ui-block-d\" id = \"avail\">"+user[4]+"</div>"+
+				"<div class=\"ui-block-e\" id = \"time\">"+user[5]+"</div>";
+
+			$(tblRow).appendTo("#display");
+			console.log(data);
+			
+		});
 			//
 			/*$.each(data,function(i,user)
 			{
@@ -51,7 +51,6 @@ $(tblRow).appendTo("#display");
 				//document.write(user.name);
 				console.log(data);
 			});*/
-		});
 		});
 		
 		function GetUrlValue(VarSearch)

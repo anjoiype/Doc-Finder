@@ -40,17 +40,18 @@ $Result = pg_query($link,$Query); //Execute the query
 $json = array();
 
 $row = true;
-while ($row = pg_fetch_array($Result)){
+while ($row = pg_fetch_row($Result)){
 	
-	$json['name'] = $row['doc_name'];
+	/*$json['name'] = $row['doc_name'];
 	$json['speciality'] = $row['speciality'];
 	$json['location'] = $row['loc'];
 	$json['avail'] = $row['avail'];
-	$json['time'] = $row['time'];
-	echo $json_data = json_encode($json);
+	$json['time'] = $row['time'];*/
+	
+	$json[] = $row; 
 }
 
-
+echo $json_data = json_encode($json);
 
 pg_free_result($Result);
 pg_close();
