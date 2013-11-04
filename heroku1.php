@@ -47,9 +47,10 @@ while ($row = pg_fetch_array($Result)){
 	$json['location'] = $row['loc'];
 	$json['avail'] = $row['avail'];
 	$json['time'] = $row['time'];
+	echo $json_data = json_encode($json);
 }
 
-echo $json_data = json_encode($json);
+
 
 pg_free_result($Result);
 pg_close();
