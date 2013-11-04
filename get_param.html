@@ -29,7 +29,7 @@
 		var sql;
 		var url='http://lit-journey-1188.herokuapp.com/heroku1.php';
 		$.getJSON(url+"?person="+radio_text+"&search_text="+search_string,function(data)
-		{
+		{console.log(data);
 			$.each(data,function(i,user){
 			var tblRow =
 				"<div class=\"ui-block-a\" id = \"name\">"+data.name+"</div>"+
@@ -37,7 +37,7 @@
 				"<div class=\"ui-block-c\" id = \"location\">"+user.location+"</div>"+
 				"<div class=\"ui-block-d\" id = \"avail\">"+user.avail+"</div>"+
 				"<div class=\"ui-block-e\" id = \"time\">"+user.time+"</div>";
-            console.log(data);
+            
            
             
             
