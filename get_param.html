@@ -27,8 +27,8 @@
 		var radio_text = GetUrlValue('person');
 		var search_string  = GetUrlValue('search_text');
 		var sql;
-		var url = 'http://localhost/heroku1.php';
-		//var url='http://lit-journey-1188.herokuapp.com/heroku1.php';
+		//var url = 'http://localhost/heroku1.php';
+		var url='http://lit-journey-1188.herokuapp.com/heroku1.php';
 		$.getJSON(url+"?person="+radio_text+"&search_text="+search_string,function(data)
 		{
 			$.each(data,function(i,user)
