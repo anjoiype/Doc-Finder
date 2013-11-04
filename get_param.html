@@ -30,13 +30,15 @@
 		var url='http://lit-journey-1188.herokuapp.com/heroku1.php';
 		$.getJSON(url+"?person="+radio_text+"&search_text="+search_string,function(data)
 		{
+			$.each(data,function(i,user){
 			var tblRow =
 				"<div class=\"ui-block-a\" id = \"name\">"+data.name+"</div>"+
 				"<div class=\"ui-block-b\" id = \"spec\">"+data.speciality+"</div>"+
 				"<div class=\"ui-block-c\" id = \"location\">"+data.location+"</div>"+
 				"<div class=\"ui-block-d\" id = \"avail\">"+data.avail+"</div>"+
 				"<div class=\"ui-block-e\" id = \"time\">"+data.time+"</div>";
-
+            console.log(user);
+		
 $(tblRow).appendTo("#display");
 			//
 			/*$.each(data,function(i,user)
@@ -45,6 +47,7 @@ $(tblRow).appendTo("#display");
 				//document.write(user.name);
 				console.log(data);
 			});*/
+		});
 		});
 		
 		function GetUrlValue(VarSearch)
