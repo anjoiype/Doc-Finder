@@ -20,7 +20,7 @@ $Result = pg_query($link,$Query); //Execute the query
 $row_no= pg_affected_rows($Result);
 if($row_no == 0)
 {
-		header("location: /index.html?redirect=true&tok=false");
+		header("location: http://lit-journey-1188.herokuapp.com/index.html?redirect=true&tok=false");
 }
 else
 {
