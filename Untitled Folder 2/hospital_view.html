@@ -16,31 +16,6 @@
     	font-size: 12px;
     }
     </style>
-    <script type="text/javascript">
- 
-		$(document).ready(function()
-		{
-			
-			var counter = 2;
-			console.log();
-			$("#addButton").click(function ()
-			{ 	
-					   
- 				var newTextBoxDiv = $(document.createElement('div'))
-					.attr("id", 'TextBoxDiv' + counter);
-
-				newTextBoxDiv.after().html('<label for="time'+counter+'">Time</label>'+
-				'<textarea name="time'+counter+'" id="time'+counter+'"></textarea><br>'+
-			'<label for="Cap'+counter+'">Capacity</label>'+
-				'<textarea name="cap'+counter+'" id="cap'+counter+'"></textarea><br>');
-
-				newTextBoxDiv.appendTo("#more_slot");
-				counter++;
-			});
-			console.log();
- 
-	});
-</script>
     			
 </head>
 <body>
@@ -52,23 +27,14 @@
         <div data-role="content">	
 		<h4>Enter the details about doctor</h4>
 		<form action ="insert_doc_info.php" method ="get" data-ajax = "false" >
-			<label for="doc_id">Id</label>
-				<textarea name="doc_id" id="doc_id"></textarea><br>
 			<label for="doc_name">Name</label>
 				<textarea name="doc_name" id="doc_name"></textarea><br>
 			<label for="spec">Speciality</label>
 				<textarea name="spec" id="spec"></textarea><br>
 			<label for="loc">Location</label>
 				<textarea name="loc" id="loc"></textarea><br>
-			<div id = "more_slot"> 
-			<label for="time">Time</label>
-				<textarea name="time" id="tme"></textarea><br>
-			<label for="Cap">Capacity</label>
-				<textarea name="cap" id="cap"></textarea><br>
-			</div>
-		<!--	<input type="button" value="addButton" data-theme="b" data-icon="arrow-r" data-iconpos="right" id = "addButton"> -->
 			<input type="submit" value="Submit" data-theme="b" data-icon="arrow-r" data-iconpos="right">
-		
+		</div>
 		</form>
 		</div><!-- /content -->
 		

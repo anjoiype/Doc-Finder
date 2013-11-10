@@ -22,9 +22,8 @@
 <script>
 		$(document).ready(function()
 		{	
-			var redirect = GetUrlValue('redirect');
-			if(redirect == "true")
-				 $("#wrong_cred").html("<font color=\"red\">Wrong username or password</font><br>");
+			var uid = GetUrlValue('uid');
+			$('#search_doc').click(function() { window.location.pathname = "search_doc.html"; });
 			console.log(redirect);
 			
 		
@@ -47,25 +46,16 @@
 <body>
 	<div data-role="page" id="one">
 		<div data-role="header" data-theme="b">
-			<h1 style="font-size:1.3em;line-height:1.3em;">Login</h1>
+			<h1 style="font-size:1.3em;line-height:1.3em;">Home</h1>
         </div><!-- /header -->
         
           <div data-role="content">
         	<div class="c_content_body">
-        		<h4 style="text-align:center">Please fill in the information below</h4>
-            	<form action ="login_check.php" method ="get" data-ajax = "false" >
-					<div id ="wrong_cred"></div>
-					<label for="uname">Username</label>
-						<input type ="text" name="uname" id="uname"/><br>
-					<label for="pwd">Password</label>
-						<input type = "password" name="pwd" id="pwd"/><br>
-					<input type="submit" value="Submit" data-theme="b" data-icon="check" data-iconpos="right" data-inline="true" >
-					</form>
-					
-				<a href = "/new_user.html">New users click here to sign up</a><br>
-				<a href = "/new_doc.html">New doctors click here to sign up</a>
-
-		</div><!-- /content -->
+        		<h4 style="text-align:center">Welcome</h4>
+        		<div id = "button_search">
+        		</div>
+					<input type="button" value="Search" id="search_doc" data-theme="b" data-icon="check" data-iconpos="right" data-inline="true" >
+				</div><!-- /content --> 
 		
 		
 		<br><div data-role="footer" data-theme="b">
@@ -75,4 +65,4 @@
 </body>
 </html>
 
-        
+		

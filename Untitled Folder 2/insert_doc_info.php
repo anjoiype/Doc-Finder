@@ -14,23 +14,13 @@ $Query = "";
 $doc_name = $_GET['doc_name'];
 $spec  = $_GET['spec'];
 $loc  = $_GET['loc'];
-$cap = $_GET['cap'];
-$time = $_GET['time'];
-$doc_id = $_GET['doc_id'];
-$avail = $cap;
-$Query = "INSERT INTO search(doc_name,speciality,loc,doc_id,cap,avail,time) VALUES('".$doc_name."','".$spec."','".$loc."','".$doc_id."',".$cap.",".$avail.",'".$time."')";
+$Query = "INSERT INTO search(doc_name,speciality,loc) VALUES('".$doc_name."','".$spec."','".$loc."')";
 $Result = pg_query($link,$Query); //Execute the query
 if(!$Result)
 {
 	die("Error in query: " . pg_last_error());
 }
-$Query = "INSERT INTO doc_details(doc_name,doc_id,time,cap,avail) VALUES('".$doc_name."','".$doc_id."','".$time."',".$cap.",".$avail.")";
-$Result = pg_query($link,$Query); //Execute the query
-if(!$Result)
-{
-	die("Error in query: " . pg_last_error());
-}
-echo "success";
+echo "sucessfull";
 pg_free_result($Result);
 pg_close();
 ?>

@@ -10,7 +10,7 @@
     .c_col{
     	border-top:1px solid #ccc;
     }
-    .ui-block-a, .ui-block-b, .ui-block-c, .ui-block-d, .ui-block-e, .ui-block-f{
+    .ui-block-a, .ui-block-b, .ui-block-c, .ui-block-d, .ui-block-e{
     	padding-top:5px;
     	padding-bottom: 5px;
     	font-size: 12px;
@@ -26,27 +26,22 @@
 		
 		var radio_text = GetUrlValue('person');
 		var search_string  = GetUrlValue('search_text');
-		var uid = GetUrlValue('uid');
-		var redirect = GetUrlValue('avail');
-			if(redirect == "false")
-				alert("No availability");
-		
 		var sql;
 		//var url = 'http://localhost/heroku1.php';
 		var url='http://lit-journey-1188.herokuapp.com/heroku1.php';
-		$.getJSON(url+"?person="+radio_text+"&search_text="+search_string+"&uid="+uid,function(data)
+		$.getJSON(url+"?person="+radio_text+"&search_text="+search_string,function(data)
 		{
 			$.each(data,function(i,user)
 			{
 			var tblRow =
-				"<div class=\"ui-block-a\" id = \"name\"><a href=\"booking.html?usr_id="+uid+"&doc_id="+user[6]+"&person="+radio_text+"&search_text="+search_string+"\" rel=\"external\">"+user[0].toUpperCase()+"</a></div>"+
+				"<div class=\"ui-block-a\" id = \"name\">"+user[0].toUpperCase()+"</div>"+
 				"<div class=\"ui-block-b\" id = \"spec\">"+user[3].toUpperCase()+"</div>"+
 				"<div class=\"ui-block-c\" id = \"location\">"+user[1].toUpperCase()+"</div>"+
 				"<div class=\"ui-block-d\" id = \"avail\">"+user[4]+"</div>"+
 				"<div class=\"ui-block-e\" id = \"time\">"+user[5]+"</div>";
-				
+
 			$(tblRow).appendTo("#display");
-			
+			console.log(data);
 			
 		});
 			//

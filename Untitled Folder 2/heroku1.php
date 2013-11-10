@@ -28,9 +28,9 @@ if($radio_option == 'speciality')
 {
 	$Query = "SELECT * FROM search WHERE speciality = '".$search_text."'";
 } 
-if($radio_option == 'loc')
+if($radio_option == 'date')
 {
-	$Query = "SELECT * FROM search WHERE loc = '".$search_text."'";
+	$Query = "SELECT * FROM search WHERE date = '".$search_text."'";
 } 
 //$Query = "SELECT * FROM search WHERE doc_name = 'susan'";
 

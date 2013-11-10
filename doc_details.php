@@ -11,20 +11,22 @@ if (!$link) {
 
 //Get the data
 $Query = "";
-$doc_name = $_GET['doc_name'];
-$spec  = $_GET['spec'];
-$loc  = $_GET['loc'];
-$cap = $_GET['cap'];
-$time = $_GET['time'];
-$doc_id = $_GET['doc_id'];
-$avail = $cap;
-$Query = "INSERT INTO search(doc_name,speciality,loc,doc_id,cap,avail,time) VALUES('".$doc_name."','".$spec."','".$loc."','".$doc_id."',".$cap.",".$avail.",'".$time."')";
+$doc_name = $_POST['doc_name'];
+$doc_id = $_POST['id'];
+$spec = $_POST['spec'];
+$age  = $_POST['age'];
+$sex  = $_POST['sex'];
+$phno = $_POST['phno'];
+$add = $_POST['add'];
+$uname = $_POST['uname'];
+$pwd = $_POST['pwd'];
+$Query = "INSERT INTO doc_details(doc_name,add,age,sex,cno,doc_id,spec) VALUES('".$doc_name."','".$add."',".$age.",'".$sex."','".$phno."','".$doc_id."','".$spec."')";
 $Result = pg_query($link,$Query); //Execute the query
 if(!$Result)
 {
 	die("Error in query: " . pg_last_error());
 }
-$Query = "INSERT INTO doc_details(doc_name,doc_id,time,cap,avail) VALUES('".$doc_name."','".$doc_id."','".$time."',".$cap.",".$avail.")";
+$Query = "INSERT INTO login(uname,pwd,d_or_p) VALUES('".$uname."','".$pwd."','d')";
 $Result = pg_query($link,$Query); //Execute the query
 if(!$Result)
 {
@@ -34,3 +36,4 @@ echo "success";
 pg_free_result($Result);
 pg_close();
 ?>
+
