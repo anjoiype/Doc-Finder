@@ -34,6 +34,7 @@ $row = pg_fetch_row($Result);
 	
 	$avail=$row[0];
 	echo $avail;
+	echo "hbhj";
 	$avail=$avail-1;
 	
 /*
