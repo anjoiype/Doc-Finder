@@ -42,7 +42,7 @@ if(!$Result)
 {
 	die("Error in query:3 " . pg_last_error());
 }
-echo "success";
+header("location:index.html");
 pg_free_result($Result);
 pg_close();
 ?>
