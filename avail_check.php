@@ -14,11 +14,11 @@ $row = pg_fetch_row($Result);
 $avail =$row[0];
 if(($avail-1)!=0)
 {
-	header("location:booking.html");
+	header("location:http://lit-journey-1188.herokuapp.com/booking.html");
 }
 else
 {
-	header("location:get_param.html?usr_id=".$usr_id."&doc_id=".$doc_id."&person=".$radio_text."&search_text=".$search_text."&avail=false");
+	header("location:http://lit-journey-1188.herokuapp.com/get_param.html?usr_id=".$usr_id."&doc_id=".$doc_id."&person=".$radio_text."&search_text=".$search_text."&avail=false");
 }
 <?
 

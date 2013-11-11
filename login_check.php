@@ -29,11 +29,11 @@ else
 	
 		if($row[0] == "p")
 		{
-			header("location: /user_home.html?uid=".$row[1]);
+			header("location: http://lit-journey-1188.herokuapp.com/user_home.html?uid=".$row[1]);
 		}
 		else
 		{
-			header("location: /new_doc.html");
+			header("location:http://lit-journey-1188.herokuapp.com/new_doc.html");
 		}
 	}	
 }
