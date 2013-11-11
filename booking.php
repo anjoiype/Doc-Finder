@@ -21,14 +21,14 @@ $Query = "INSERT INTO booking(name,age,sex,add,uid,doc_id) VALUES('".$name."',".
 $Result = pg_query($link,$Query); //Execute the query
 if(!$Result)
 {
-	die("Error in query: " . pg_last_error());
+	die("Error in query: 1" . pg_last_error());
 }
 
 $Query = "SELECT avail FROM search WHERE doc_id ='".$doc_id."'";
 $Result = pg_query($link,$Query); //Execute the query
 if(!$Result)
 {
-	die("Error in query: " . pg_last_error());
+	die("Error in query:2 " . pg_last_error());
 }
 while ($row = pg_fetch_row($Result))
 {
@@ -39,15 +39,15 @@ $Query = "UPDATE search SET avail=".$avail."WHERE doc_id = '".$doc_id."'";
 $Result = pg_query($link,$Query); //Execute the query
 if(!$Result)
 {
-	die("Error in query: " . pg_last_error());
+	die("Error in query: 3" . pg_last_error());
 }
 $Query = "UPDATE doc_details SET avail=".$avail."WHERE doc_id = '".$doc_id."'";
 $Result = pg_query($link,$Query); //Execute the query
 if(!$Result)
 {
-	die("Error in query: " . pg_last_error());
+	die("Error in query:4 " . pg_last_error());
 }
 
-header("location:http://lit-journey-1188.herokuapp.com/new_doc.html/booked.html");
+header("location:http://lit-journey-1188.herokuapp.com/booked.html");
 
 ?>
