@@ -33,7 +33,7 @@ else
 		}
 		else
 		{
-			header("location:http://lit-journey-1188.herokuapp.com/new_doc.html");
+			header("location:http://lit-journey-1188.herokuapp.com/doc_home.html");
 		}
 	}	
 }
