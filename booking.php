@@ -52,6 +52,6 @@ if(!$Result)
 	die("Error in query:4 " . pg_last_error());
 }
 
-header("location:http://lit-journey-1188.herokuapp.com/search_doc.html");
+header("location:http://lit-journey-1188.herokuapp.com/user_home.html");
 
 ?>
