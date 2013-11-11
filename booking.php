@@ -31,10 +31,10 @@ if(!$Result)
 	die("Error in query:2 " . pg_last_error());
 }
 while ($row = pg_fetch_row($Result))
-{	
+{	echo $avail;
 	$avail=$row[0];
 	$avail=$avail-1;
-	echo $avail;
+	
 }/*
 $Query = "UPDATE search SET avail=".$avail."WHERE doc_id = '".$doc_id."'";
 $Result = pg_query($link,$Query); //Execute the query
