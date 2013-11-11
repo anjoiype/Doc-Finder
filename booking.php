@@ -30,7 +30,7 @@ if(!$Result)
 {
 	die("Error in query:2 " . pg_last_error());
 }
-$row = pg_fetch_row($Result))
+$row = pg_fetch_row($Result);
 	
 	$avail=$row[0];
 	echo $avail;
