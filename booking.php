@@ -33,11 +33,12 @@ if(!$Result)
 $row = pg_fetch_row($Result);
 	
 	$avail=$row[0];
-	echo $avail;
-	echo "hbhj";
+	
 	$avail=$avail-1;
 	
-/*
+	
+	
+
 $Query = "UPDATE search SET avail=".$avail."WHERE doc_id = '".$doc_id."'";
 $Result = pg_query($link,$Query); //Execute the query
 if(!$Result)
@@ -52,5 +53,5 @@ if(!$Result)
 }
 
 header("location:http://lit-journey-1188.herokuapp.com/booked.html");
-*/
+
 ?>
