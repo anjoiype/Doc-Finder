@@ -23,6 +23,7 @@ $pwd = $_POST['pwd'];
 $loc=$_POST['loc'];
 $time=$_POST['time'];
 $cap=$_POST['cap'];
+$avail=$cap;
 $Query = "INSERT INTO doc_details(doc_name,add,age,sex,cno,doc_id,spec,loc,time,cap) VALUES('".$doc_name."','".$add."',".$age.",'".$sex."','".$phno."','".$doc_id."','".$spec."','".$loc."','".$time."','".$cap."')";
 $Result = pg_query($link,$Query); //Execute the query
 if(!$Result)
