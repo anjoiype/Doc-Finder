@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+    <title>medical cloud-set</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css">
+    <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+    <style type="text/css">
+    .c_col{
+    	border-top:1px solid #ccc;
+    }
+    .ui-block-a, .ui-block-b, .ui-block-c, .ui-block-d, .ui-block-e{
+    	padding-top:5px;
+    	padding-bottom: 5px;
+    	font-size: 12px;
+    }
+    </style>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js">
+</script>
+<script src ="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script>
+		$(document).ready(function()
+		{	
+			var uid = GetUrlValue('uid');
+			$('#search_doc').click(function() { window.location.pathname = "search_doc.html"; });
+			console.log(redirect);
+			
+		
+		function GetUrlValue(VarSearch)
+		{
+			var SearchString = window.location.search.substring(1);
+			var VariableArray = SearchString.split('&');
+			for(var i = 0; i < VariableArray.length; i++)
+			{
+				var KeyValuePair = VariableArray[i].split('=');
+				if(KeyValuePair[0] == VarSearch)
+				{
+				return KeyValuePair[1];
+				}
+			}
+		}
+	});
+</script>
+</head>
+<body>
+	<div data-role="page" id="one">
+		<div data-role="header" data-theme="b">
+			<h1 style="font-size:1.3em;line-height:1.3em;">Home</h1>
+        </div><!-- /header -->
+        
+          <div data-role="content">
+        	<div class="c_content_body">
+        		<h4 style="text-align:center">Welcome</h4>
+        		<div id = "button_search">
+        		</div>
+					<input type="button" value="Search" id="search_doc" data-theme="b" data-icon="check" data-iconpos="right" data-inline="true" >
+				</div><!-- /content --> 
+		
+		
+		<br><div data-role="footer" data-theme="b">
+            <p style="text-align:center">Medical Cloud</p>
+        </div><!-- /footer -->
+	</div><!-- /page -->
+</body>
+</html>
+
+		

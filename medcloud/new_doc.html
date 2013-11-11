@@ -41,19 +41,26 @@
 	<div data-role="page" id="one">
 		<div data-role="header" data-theme="b">
 			<h1 style="font-size:1.3em;line-height:1.3em;">Login</h1>
-     </div><!-- /header -->
+        </div><!-- /header -->
         
-     <div data-role="content">
+          <div data-role="content">
         	<div class="c_content_body">
         		<h4 style="text-align:center">Please fill in the information below</h4>
         		
-            	<form action ="http://lit-journey-1188.herokuapp.com/new_doc.html/patient_details.php" method ="post" data-ajax = "false" >
-					
-					<label for="usr_name">Name</label>
-						<input type ="text" name="usr_name" id="usr_name" value=""/><br>
+            	<form action ="doc_details.php" method ="post" data-ajax = "false" >
+			
+					<label for="doc_name">Name</label>
+						<input type ="text" name="doc_name" data-clear-btn="true" id="doc_name" value=""/><br>
+						
+					<label for="doc_id">ID</label>
+						<input type ="text" name="id" data-clear-btn="true" id="id" value=""/><br>
+						
+							
+					<label for="spec">Speciality</label>
+						<input type ="text" name="spec" data-clear-btn="true" id="spec" value=""/><br>
 						
 					<label for="age">Age</label>
-						<input type ="text" name="age" id="age" value=""/><br>
+						<input type ="text" name="age" data-clear-btn="true" id="age" value=""/><br>
 						
 					<fieldset data-role="controlgroup" data-type="horizontal">
 						<legend>Sex:</legend>
@@ -63,26 +70,25 @@
 							<label for="female">Female</label>
 					</fieldset>
 					<label for="phno">Contact Number</label>
-						<input type ="text" name="phno" id="phno" value=""/><br>
-					<label for="add">Addres</label>
-						<textarea name="add" id="add"></textarea><br>
+						<input type ="text" name="phno" id="phno" data-clear-btn="true" value=""/><br>
+					<label for="add">Addres</label>  
+						<textarea name="add" id="add" data-clear-btn="true"></textarea><br>
 					<label for="uname">User name</label>
-						<input type ="text" name="uname" id="uname" value=""/><br>
+						<input type ="text" name="uname" id="uname" data-clear-btn="true" value=""/><br>
 						
 					<div class="td">
 					<label for="pwd">Password</label>
-						<input type ="password" name="pwd" id="pwd" value=""/><br>
-					</div>
+						<input type ="password" name="pwd" data-clear-btn="true" id="pwd" value=""/><br>
+					</div> 
 					 
 					<div class = "td"> 						
 					<label for="repwd">Retype Password</label>
-						<input type ="password" name="repwd" id="repwd" value="" onChange="checkPasswordMatch();"/><br>
+						<input type ="password" name="repwd" data-clear-btn="true" id="repwd" value="" onChange="checkPasswordMatch();"/><br>
 					</div>
 					
 					<div class="registrationFormAlert" id="divCheckPasswordMatch">
 					</div>
 					<input type="submit" value="Submit" data-theme="b" data-icon="check" data-iconpos="right" data-inline="true" >
-					
 					
 				</div><!-- /content -->
 		

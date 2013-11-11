@@ -20,22 +20,13 @@ $phno = $_POST['phno'];
 $add = $_POST['add'];
 $uname = $_POST['uname'];
 $pwd = $_POST['pwd'];
-$loc=$_POST['loc'];
-$time=$_POST['time'];
-$cap=$_POST['cap'];
-$Query = "INSERT INTO doc_details(doc_name,add,age,sex,cno,doc_id,spec,loc,time,cap) VALUES('".$doc_name."','".$add."',".$age.",'".$sex."','".$phno."','".$doc_id."','".$spec."','".$loc."','".$time."','".$cap."')";
+$Query = "INSERT INTO doc_details(doc_name,add,age,sex,cno,doc_id,spec) VALUES('".$doc_name."','".$add."',".$age.",'".$sex."','".$phno."','".$doc_id."','".$spec."')";
 $Result = pg_query($link,$Query); //Execute the query
 if(!$Result)
 {
 	die("Error in query: " . pg_last_error());
 }
 $Query = "INSERT INTO login(uname,pwd,d_or_p) VALUES('".$uname."','".$pwd."','d')";
-$Result = pg_query($link,$Query); //Execute the query
-if(!$Result)
-{
-	die("Error in query: " . pg_last_error());
-}
-$Query = "INSERT INTO search(doc_name,loc,speciality,avail,time,doc_id,cap) VALUES('".$doc_name."','".$loc."','".$spec."',".$avail.",'".$time."','".$doc_id."','".$cap."')";
 $Result = pg_query($link,$Query); //Execute the query
 if(!$Result)
 {

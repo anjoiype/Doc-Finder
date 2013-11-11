@@ -23,31 +23,6 @@ if(!$Result)
 {
 	die("Error in query: " . pg_last_error());
 }
-
-$Query = "SELECT avail FROM search WHERE doc_id ='".$doc_id."'";
-$Result = pg_query($link,$Query); //Execute the query
-if(!$Result)
-{
-	die("Error in query: " . pg_last_error());
-}
-while ($row = pg_fetch_row($Result))
-{
-	$avail=$row[0];
-	$avail=$avail-1;
-}
-$Query = "UPDATE search SET avail=".$avail."WHERE doc_id = '".$doc_id."'";
-$Result = pg_query($link,$Query); //Execute the query
-if(!$Result)
-{
-	die("Error in query: " . pg_last_error());
-}
-$Query = "UPDATE doc_details SET avail=".$avail."WHERE doc_id = '".$doc_id."'";
-$Result = pg_query($link,$Query); //Execute the query
-if(!$Result)
-{
-	die("Error in query: " . pg_last_error());
-}
-
-header("location:http://lit-journey-1188.herokuapp.com/new_doc.html/booked.html");
+header("location:booked.html");
 
 ?>

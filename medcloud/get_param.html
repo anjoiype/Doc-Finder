@@ -1,0 +1,110 @@
+
+<html>
+<head>
+    <title>medical cloud-set</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.css">
+    <script src="http://code.jquery.com/jquery-1.8.2.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.2.0/jquery.mobile-1.2.0.min.js"></script>
+    <style type="text/css">
+    .c_col{
+    	border-top:1px solid #ccc;
+    }
+    .ui-block-a, .ui-block-b, .ui-block-c, .ui-block-d, .ui-block-e, .ui-block-f{
+    	padding-top:5px;
+    	padding-bottom: 5px;
+    	font-size: 12px;
+    }
+    </style>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js">
+</script>
+<script src ="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script>
+
+	$(document).ready(function()
+	{
+		
+		var radio_text = GetUrlValue('person');
+		var search_string  = GetUrlValue('search_text');
+		var uid = GetUrlValue('uid');
+		var redirect = GetUrlValue('avail');
+			if(redirect == "false")
+				alert("No availability");
+		
+		var sql;
+		//var url = 'http://localhost/heroku1.php';
+		var url='http://lit-journey-1188.herokuapp.com/heroku1.php';
+		$.getJSON(url+"?person="+radio_text+"&search_text="+search_string+"&uid="+uid,function(data)
+		{
+			$.each(data,function(i,user)
+			{
+			var tblRow =
+				"<div class=\"ui-block-a\" id = \"name\"><a href=\"booking.html?usr_id="+uid+"&doc_id="+user[6]+"&person="+radio_text+"&search_text="+search_string+"\" rel=\"external\">"+user[0].toUpperCase()+"</a></div>"+
+				"<div class=\"ui-block-b\" id = \"spec\">"+user[3].toUpperCase()+"</div>"+
+				"<div class=\"ui-block-c\" id = \"location\">"+user[1].toUpperCase()+"</div>"+
+				"<div class=\"ui-block-d\" id = \"avail\">"+user[4]+"</div>"+
+				"<div class=\"ui-block-e\" id = \"time\">"+user[5]+"</div>";
+				
+			$(tblRow).appendTo("#display");
+			
+			
+		});
+			//
+			/*$.each(data,function(i,user)
+			{
+				//document.write("HGFFF");
+				//document.write(user.name);
+				console.log(data);
+			});*/
+		});
+		
+		function GetUrlValue(VarSearch)
+		{
+			var SearchString = window.location.search.substring(1);
+			var VariableArray = SearchString.split('&');
+			for(var i = 0; i < VariableArray.length; i++)
+			{
+				var KeyValuePair = VariableArray[i].split('=');
+				if(KeyValuePair[0] == VarSearch)
+				{
+				return KeyValuePair[1];
+				}
+			}
+		}
+	});
+		
+		</script>
+</head>
+<body>
+	
+	
+    <div data-role="page" id="two">
+		  <div data-role="header" data-theme="b">
+            <h1 style="font-size:1.3em;line-height:1.3em;">Search Results</h1>
+        </div><!-- /header -->
+
+		<div data-role="content">	
+				<h4 style="text-align:center">Search results are displayed below</h4>
+			<div class="ui-grid-d c_col" id ="display">
+				
+					<div class="ui-block-a"><b>Name</b></div>
+					<div class="ui-block-b"><b>Speciality</b></div>
+					<div class="ui-block-c"><b>Location</b></div>
+					<div class="ui-block-d"><b>Availability</b></div>
+					<div class="ui-block-e"><b>Time</b></div>
+				
+
+			</div><!-- /grid-b -->	
+				<br><br>
+				<a href="#three" data-theme="b" data-role="button" data-transition="slide" data-icon="arrow-r" data-iconpos="right">Feedback Form</a>
+		</div><!-- /content -->
+		
+
+		<div data-role="footer" data-theme="b">
+            <p style="text-align:center">Medical Cloud</p>
+        </div><!-- /footer -->
+       
+</body>
+</html>
+
+
