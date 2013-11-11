@@ -28,19 +28,19 @@ $Query = "INSERT INTO doc_details(doc_name,add,age,sex,cno,doc_id,spec,loc,time,
 $Result = pg_query($link,$Query); //Execute the query
 if(!$Result)
 {
-	die("Error in query: " . pg_last_error());
+	die("Error in query:1 " . pg_last_error());
 }
 $Query = "INSERT INTO login(uname,pwd,d_or_p) VALUES('".$uname."','".$pwd."','d')";
 $Result = pg_query($link,$Query); //Execute the query
 if(!$Result)
 {
-	die("Error in query: " . pg_last_error());
+	die("Error in query:2 " . pg_last_error());
 }
 $Query = "INSERT INTO search(doc_name,loc,speciality,avail,time,doc_id,cap) VALUES('".$doc_name."','".$loc."','".$spec."',".$avail.",'".$time."','".$doc_id."','".$cap."')";
 $Result = pg_query($link,$Query); //Execute the query
 if(!$Result)
 {
-	die("Error in query: " . pg_last_error());
+	die("Error in query:3 " . pg_last_error());
 }
 echo "success";
 pg_free_result($Result);
