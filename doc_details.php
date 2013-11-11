@@ -42,7 +42,7 @@ if(!$Result)
 {
 	die("Error in query:3 " . pg_last_error());
 }
-header("location:index.html");
+header("location:http://lit-journey-1188.herokuapp.com/index.html");
 pg_free_result($Result);
 pg_close();
 ?>

@@ -66,7 +66,7 @@ if(!$Result)
 {
 	die("Error in query: " . pg_last_error());
 }
-header("location:user_home.html?uid=".$user_id."&");
+header("location:http://lit-journey-1188.herokuapp.com/user_home.html?uid=".$user_id."&");
 pg_free_result($Result);
 pg_close();
 ?>
